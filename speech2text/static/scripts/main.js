@@ -15,6 +15,7 @@ function onRecordingStopped(e) {
     audio.src = url;
     audio.play();
     blob2base64(blob, onBase64Ready);
+    recordedChunks = [];
 }
 
 function onBase64Ready(base64) {
@@ -28,8 +29,12 @@ function onBase64Ready(base64) {
         processData: false,
         contentType: false,
         cache: false,
-        success: function(res) {
-            console.log(res);
+        success: function(response) {
+            trans = JSON.parse(response);
+            trans.forEach(function(res) {
+                $(questions).append('<div>' + res.text + '</div>');
+                $(questions).append("<br/>");
+            })
         },
         error: function(res) {
             console.log(res);
@@ -54,16 +59,21 @@ $(document).ready(function() {
     var downloadLink = document.getElementById('download');
     var stopLink = document.getElementById('stop');
     var mediaRecorder;
+    var questions = $('#questions');
 
 
     var handleSuccess = function(stream) {
-        var options = {mimeType: 'audio/webm'};
+        var options = {mimeType: 'audio/webm;codecs=opus;'};
 
         mediaRecorder = new MediaRecorder(stream, options);
         mediaRecorder.addEventListener('dataavailable', onRecordingReady);
         mediaRecorder.addEventListener('stop', onRecordingStopped);
         mediaRecorder.start();
         startLink.disabled = true;
+    }
+    
+    var handleError = function(err) {
+        alert(err);
     }
 
     stopLink.addEventListener('click', function() {
@@ -73,6 +83,6 @@ $(document).ready(function() {
 
     startLink.addEventListener('click', function() {
         navigator.mediaDevices.getUserMedia({ audio: true, video: false })
-            .then(handleSuccess);
+            .then(handleSuccess).catch(handleError);
     })
 });
