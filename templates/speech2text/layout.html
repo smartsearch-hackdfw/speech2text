@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Minerds | Smart Search</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+      
+    <link href='https://fonts.googleapis.com/css?family=Lobster|Open+Sans:400,400italic,300italic,300|Raleway:300,400,600' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" 
+        href="{{ url_for('speech2text.static', filename='styles/font-awesome.min.css') }}">
+    <link rel="stylesheet" type="text/css" 
+        href="{{ url_for('speech2text.static', filename='styles/bootstrap.min.css') }}">
+
+    <link rel="stylesheet" type="text/css" 
+        href="{{ url_for('speech2text.static', filename='styles/animate.min.css') }}">
+
+    <link rel="stylesheet" type="text/css" 
+        href="{{ url_for('speech2text.static', filename='styles/style.css') }}">
+
+    <link rel="stylesheet" type="text/css" 
+        href="{{ url_for('speech2text.static', filename='styles/custom.css') }}">
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
+              integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
+              crossorigin="anonymous"></script>
+    <script src="{{ url_for('speech2text.static', filename='scripts/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('speech2text.static', filename='scripts/wow.min.js') }}"></script>
+    <script src="{{ url_for('speech2text.static', filename='scripts/custom.js') }}"></script>
+    <script src="{{ url_for('speech2text.static', filename='scripts/encoderWorker.min.js') }}"></script>
+    <script src="{{ url_for('speech2text.static', filename='scripts/recorder.min.js') }}"></script>
+    <script src="{{ url_for('speech2text.static', filename='scripts/main.js') }}"></script>
+  </head>
+  <body>
+      {% block body %}{% endblock %}
+  </body>
+</html>

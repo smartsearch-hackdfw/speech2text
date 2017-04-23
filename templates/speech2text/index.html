@@ -1,0 +1,59 @@
+{% extends 'speech2text/layout.html' %}
+{% block body %}
+Hello World!
+
+<button  id="download">
+    Download
+</button>
+
+<button id="start">
+    Start
+</button>
+
+<button type="button" id="stop">
+    Stop
+</button>
+
+<audio id="audio" controls></audio>
+
+<div id="questions">
+</div>
+
+<div id="answers">
+</div>
+
+<div class="content">
+  <div class="container wow fadeInUp delay-03s">
+    <div class="row">
+      <div class="logo text-center">
+        <img src="{{ url_for('speech2text.static', filename="images/logo.png") }}" alt="logo" width="150">
+
+      </div>
+
+      <div id="title" class="subs-title text-center" style="font-family: 'gotbold';">
+        <h1>Smart Search</h1>
+      </div>
+
+      <h2 class="subs-title text-center">Ask away!</h2>
+      <div class="subcription-info text-center">
+        <form class="subscribe_form" action="#" method="post">
+          <input required="" value="" placeholder="  Smarten your search..." class="email" id="email" name="query" type="text">
+          <br>
+          <p> </p>
+          <i class="fa fa-microphone fa-2x" aria-hidden="true"></i>
+          </input>
+          <input id="go" class="subscribe" name="email" value="Go!" type="submit">
+        </form>
+        <p> </p>
+        <p class="sub-p">You can make a change.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+$( document).ready(function() {
+    $( "#accordion" ).accordion();
+} );
+</script>
+{% endblock %}

@@ -1,6 +1,8 @@
 from flask import Flask
-from speech2text import speech_app
+from . import speech_app
 
 app = Flask(__name__)
 app.register_blueprint(speech_app)
-app.run(debug=True)
+
+if __name__ == '__main__':
+    app.run(debug=True)

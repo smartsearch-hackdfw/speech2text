@@ -24,7 +24,7 @@ function onBase64Ready(base64) {
 
     $.ajax({
         method: 'POST',
-        url: '/',
+        url: '/speech/',
         data: formData,
         processData: false,
         contentType: false,
